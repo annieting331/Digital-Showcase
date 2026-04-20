@@ -65,8 +65,20 @@ body {
     position: absolute;
     left: 0.85rem;
     top: 50%;
-    z-index: 3;
+    z-index: 20;
     transform: translateY(-50%);
+    min-height: 44px;
+    padding-inline: 0.9rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body.portfolio-page .nav-menu-button * {
+    pointer-events: none;
   }
 
   body.portfolio-page .nav-main {

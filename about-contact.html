@@ -791,23 +791,31 @@
 <script src="https://cdn.prod.website-files.com/65d7726f7df9f04927689b5a/js/webflow.faaaf358.60dcd9db4a1deb93.js" type="text/javascript"></script>
 <script>
   (function() {
-    var btn = document.querySelector('.nav-menu-button');
     var menu = document.querySelector('.fullscreen-menu');
-    var closeEl = document.querySelector('.menu-close');
-    var background = document.querySelector('.menu-background');
-    if (btn && menu) {
-      btn.addEventListener('click', function() {
-        menu.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-      });
+    function openMenu() {
+      if (!menu) return;
+      menu.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
     }
     function closeMenu() {
       if (!menu) return;
       menu.classList.remove('is-open');
       document.body.style.overflow = '';
     }
-    if (closeEl) closeEl.addEventListener('click', closeMenu);
-    if (background) background.addEventListener('click', closeMenu);
+    ['click', 'touchend', 'pointerup'].forEach(function(type) {
+      document.addEventListener(type, function(e) {
+        var openTrigger = e.target.closest('.nav-menu-button');
+        var closeTrigger = e.target.closest('.menu-close, .menu-background');
+        if (openTrigger) {
+          e.preventDefault();
+          openMenu();
+        }
+        if (closeTrigger) {
+          e.preventDefault();
+          closeMenu();
+        }
+      }, { passive: false });
+    });
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeMenu();
     });
