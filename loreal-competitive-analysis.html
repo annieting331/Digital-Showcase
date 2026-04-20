@@ -743,6 +743,39 @@
     </div>
   </div>
 </div>
+      <div class="fullscreen-menu">
+        <div class="menu-layout">
+          <div class="menu-links">
+            <a href="index.html" class="menu-brand w-inline-block">
+              <img src="https://cdn.prod.website-files.com/65d7726f7df9f04927689b5a/65d793185e2ffe3d8c1e2c2e_asterisk-fill0-wght400-grad0-opsz24%20(1).svg" loading="lazy" alt="" class="logo-image-default" />
+              <p class="brand-name-text">Ting Yilun</p>
+              <p class="brand-slogan">Creative Futures showcase</p>
+            </a>
+            <div class="menu-main-links">
+              <a href="index.html" class="menu-main-link">Home</a>
+              <a href="research-project.html" class="menu-main-link">Research</a>
+              <a href="kiehls-sustainability.html" class="menu-main-link">Kiehl's</a>
+              <a href="loreal-competitive-analysis.html" class="menu-main-link">L'Oréal</a>
+              <a href="florasis-promotion-plan.html" class="menu-main-link">Florasis</a>
+              <a href="flower-knows-communication-plan.html" class="menu-main-link">Flower Knows</a>
+              <a href="about-contact.html" class="menu-main-link">About / Contact</a>
+            </div>
+            <div class="menu-small-links">
+              <a href="mailto:contact@tingyilun.com" class="menu-small-link">Email</a>
+              <a href="https://www.linkedin.com/in/annie-ting-5a92a1346/" target="_blank" rel="noopener noreferrer" class="menu-small-link">LinkedIn</a>
+              <a href="CV-Ting-Yilun-PIE.pdf" target="_blank" rel="noopener noreferrer" class="menu-small-link">CV</a>
+            </div>
+          </div>
+          <div class="menu-close">
+            <div class="menu-close-button">
+              <img src="https://cdn.prod.website-files.com/65d7726f7df9f04927689b5a/65d8d493cfefdbd77e327ac5_close-fill0-wght600-grad0-opsz24.svg" loading="lazy" alt="" class="icon is-close-icon" />
+              <div class="menu-close-text">Close</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-background"></div>
+        <div class="menu-delay-for-animation"></div>
+      </div>
       <main id="main-content">
         <div class="portfolio-main">
   <section class="portfolio-section" style="padding-top: 9rem;">
@@ -998,5 +1031,29 @@
 <script src="https://cdn.prod.website-files.com/65d7726f7df9f04927689b5a/js/webflow.schunk.0e77e8610c42c2bf.js" type="text/javascript"></script>
 <script src="https://cdn.prod.website-files.com/65d7726f7df9f04927689b5a/js/webflow.schunk.a620015e8640da57.js" type="text/javascript"></script>
 <script src="https://cdn.prod.website-files.com/65d7726f7df9f04927689b5a/js/webflow.faaaf358.60dcd9db4a1deb93.js" type="text/javascript"></script>
+<script>
+  (function() {
+    var btn = document.querySelector('.nav-menu-button');
+    var menu = document.querySelector('.fullscreen-menu');
+    var closeEl = document.querySelector('.menu-close');
+    var background = document.querySelector('.menu-background');
+    if (btn && menu) {
+      btn.addEventListener('click', function() {
+        menu.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    function closeMenu() {
+      if (!menu) return;
+      menu.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    if (closeEl) closeEl.addEventListener('click', closeMenu);
+    if (background) background.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+</script>
   </body>
 </html>
