@@ -55,12 +55,18 @@ body {
     display: none !important;
   }
 
+  body.portfolio-page .nav {
+    background: rgba(247, 240, 232, 0.96);
+    backdrop-filter: blur(12px);
+  }
+
   body.portfolio-page .nav-main {
     display: flex !important;
     flex-direction: column;
     gap: 0.9rem;
     grid-template-columns: 1fr !important;
-    padding-block: 1rem 0.35rem;
+    align-items: stretch;
+    padding: 0.8rem 1rem 0.6rem;
   }
 
   body.portfolio-page .nav-main-wrapper,
@@ -72,18 +78,45 @@ body {
 
   body.portfolio-page .nav-brand {
     order: -1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
     margin-inline: auto;
+    padding: 0.25rem 0;
     text-align: center;
+    width: 100%;
+  }
+
+  body.portfolio-page .nav-brand .logo-image-default {
+    margin: 0 !important;
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  body.portfolio-page .nav-brand .brand-name-text {
+    margin: 0 !important;
+    font-size: 1rem !important;
+    line-height: 1;
+    letter-spacing: 0.08em;
+  }
+
+  body.portfolio-page .nav-brand .brand-slogan {
+    display: none !important;
+  }
+
+  body.portfolio-page .portfolio-utility-row,
+  body.portfolio-page .portfolio-utility-row.is-right {
+    display: none !important;
   }
 
   body.portfolio-page .portfolio-link-row,
-  body.portfolio-page .portfolio-link-row.is-right,
-  body.portfolio-page .portfolio-utility-row,
-  body.portfolio-page .portfolio-utility-row.is-right {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: center !important;
-    gap: 0.55rem !important;
+  body.portfolio-page .portfolio-link-row.is-right {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem !important;
+    justify-content: stretch !important;
+    width: 100%;
   }
 
   body.portfolio-page .portfolio-section {
@@ -104,10 +137,6 @@ body {
   body.portfolio-page .large-title {
     font-size: clamp(1.95rem, 8vw, 3rem) !important;
     line-height: 1.05 !important;
-  }
-
-  body.portfolio-page .brand-name-text {
-    font-size: clamp(1.45rem, 7vw, 2.1rem) !important;
   }
 
   body.portfolio-page .brand-slogan,
@@ -135,13 +164,18 @@ body {
   }
 
   body.portfolio-page .nav-main-link {
-    padding: 0.78rem 1rem !important;
-    font-size: 0.94rem !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 0.72rem 0.55rem !important;
+    border-radius: 999px;
+    background: rgba(234, 218, 219, 0.52);
+    font-size: 0.76rem !important;
+    line-height: 1.25 !important;
     letter-spacing: 0.03em !important;
-  }
-
-  body.portfolio-page .nav-contact-button {
-    padding-inline: 1rem !important;
+    text-align: center;
+    white-space: normal !important;
   }
 
   body.portfolio-page .portfolio-actions,
@@ -191,6 +225,15 @@ body {
     display: none !important;
   }
 
+  body:not(.portfolio-page) .nav-brand .brand-slogan {
+    display: none !important;
+  }
+
+  body:not(.portfolio-page) .nav-brand .brand-name-text {
+    font-size: 0.92rem !important;
+    letter-spacing: 0.08em;
+  }
+
   body:not(.portfolio-page) .footer-main-links-wrapper {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -229,16 +272,18 @@ body {
   }
 
   body.portfolio-page .portfolio-link-row,
-  body.portfolio-page .portfolio-link-row.is-right,
-  body.portfolio-page .portfolio-utility-row,
-  body.portfolio-page .portfolio-utility-row.is-right {
-    gap: 0.45rem !important;
+  body.portfolio-page .portfolio-link-row.is-right {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.42rem !important;
   }
 
-  body.portfolio-page .nav-main-link,
-  body.portfolio-page .nav-contact-button {
-    width: 100%;
-    justify-content: center;
+  body.portfolio-page .nav-main {
+    padding-inline: 0.85rem;
+  }
+
+  body.portfolio-page .nav-main-link {
+    font-size: 0.74rem !important;
+    min-height: 42px !important;
   }
 
   body.portfolio-page .portfolio-button,
