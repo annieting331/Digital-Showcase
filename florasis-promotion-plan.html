@@ -608,7 +608,7 @@
     <a href="#main-content" class="skip-link">Skip to content</a>
     <div class="page-wrapper">
       <div data-animation="default" data-collapse="none" data-duration="0" data-easing="ease" data-easing2="ease" role="banner" class="nav w-nav">
-  <div class="nav-menu-button">
+  <div class="nav-menu-button" role="button" tabindex="0" onclick="window.__portfolioMenuOpen && window.__portfolioMenuOpen(); return false;" ontouchend="window.__portfolioMenuOpen && window.__portfolioMenuOpen(); return false;" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); window.__portfolioMenuOpen && window.__portfolioMenuOpen();}">
     <div class="nav-menu-button-icon">
       <div class="menu-button-line is-1st"></div>
       <div class="menu-button-line is-2nd"></div>
@@ -661,14 +661,14 @@
               <a href="CV-Ting-Yilun-PIE.pdf" target="_blank" rel="noopener noreferrer" class="menu-small-link">CV</a>
             </div>
           </div>
-          <div class="menu-close">
+          <div class="menu-close" onclick="window.__portfolioMenuClose && window.__portfolioMenuClose(); return false;" ontouchend="window.__portfolioMenuClose && window.__portfolioMenuClose(); return false;">
             <div class="menu-close-button">
               <img src="https://cdn.prod.website-files.com/65d7726f7df9f04927689b5a/65d8d493cfefdbd77e327ac5_close-fill0-wght600-grad0-opsz24.svg" loading="lazy" alt="" class="icon is-close-icon" />
               <div class="menu-close-text">Close</div>
             </div>
           </div>
         </div>
-        <div class="menu-background"></div>
+        <div class="menu-background" onclick="window.__portfolioMenuClose && window.__portfolioMenuClose(); return false;" ontouchend="window.__portfolioMenuClose && window.__portfolioMenuClose(); return false;"></div>
         <div class="menu-delay-for-animation"></div>
       </div>
       <main id="main-content">
@@ -824,32 +824,18 @@
 <script>
   (function() {
     var menu = document.querySelector('.fullscreen-menu');
-    function openMenu() {
+    window.__portfolioMenuOpen = function() {
       if (!menu) return;
       menu.classList.add('is-open');
       document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
+    };
+    window.__portfolioMenuClose = function() {
       if (!menu) return;
       menu.classList.remove('is-open');
       document.body.style.overflow = '';
-    }
-    ['click', 'touchend', 'pointerup'].forEach(function(type) {
-      document.addEventListener(type, function(e) {
-        var openTrigger = e.target.closest('.nav-menu-button');
-        var closeTrigger = e.target.closest('.menu-close, .menu-background');
-        if (openTrigger) {
-          e.preventDefault();
-          openMenu();
-        }
-        if (closeTrigger) {
-          e.preventDefault();
-          closeMenu();
-        }
-      }, { passive: false });
-    });
+    };
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeMenu();
+      if (e.key === 'Escape') window.__portfolioMenuClose();
     });
   })();
 </script>
