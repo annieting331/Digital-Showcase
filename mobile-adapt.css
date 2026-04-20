@@ -1,0 +1,252 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.page-wrapper {
+  overflow-x: clip;
+}
+
+@media (max-width: 991px) {
+  body.portfolio-page .portfolio-grid,
+  body.portfolio-page .portfolio-card-grid,
+  body.portfolio-page .portfolio-panel-grid,
+  body.portfolio-page .portfolio-two-column,
+  body.portfolio-page .portfolio-links-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.portfolio-page .portfolio-grid > div[style*="grid-column"] {
+    grid-column: 1 / -1 !important;
+  }
+
+  body.portfolio-page [style*="position: sticky"] {
+    position: static !important;
+    top: auto !important;
+  }
+
+  body.portfolio-page .footer-main-links-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body.portfolio-page .nav-menu-button {
+    display: none !important;
+  }
+
+  body.portfolio-page .nav-main {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.9rem;
+    grid-template-columns: 1fr !important;
+    padding-block: 1rem 0.35rem;
+  }
+
+  body.portfolio-page .nav-main-wrapper,
+  body.portfolio-page .nav-main-wrapper.is-on-left,
+  body.portfolio-page .portfolio-nav-stack {
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  body.portfolio-page .nav-brand {
+    order: -1;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  body.portfolio-page .portfolio-link-row,
+  body.portfolio-page .portfolio-link-row.is-right,
+  body.portfolio-page .portfolio-utility-row,
+  body.portfolio-page .portfolio-utility-row.is-right {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    gap: 0.55rem !important;
+  }
+
+  body.portfolio-page .portfolio-section {
+    padding: 3rem 1rem !important;
+  }
+
+  body.portfolio-page .portfolio-shell {
+    width: min(100%, 40rem) !important;
+  }
+
+  body.portfolio-page .portfolio-title {
+    font-size: clamp(2.2rem, 11vw, 3.6rem) !important;
+    line-height: 1 !important;
+  }
+
+  body.portfolio-page .portfolio-section-title,
+  body.portfolio-page .section-title,
+  body.portfolio-page .large-title {
+    font-size: clamp(1.95rem, 8vw, 3rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  body.portfolio-page .brand-name-text {
+    font-size: clamp(1.45rem, 7vw, 2.1rem) !important;
+  }
+
+  body.portfolio-page .brand-slogan,
+  body.portfolio-page .portfolio-subtitle,
+  body.portfolio-page .portfolio-section-intro,
+  body.portfolio-page .portfolio-copy-block p,
+  body.portfolio-page .portfolio-panel p,
+  body.portfolio-page .portfolio-card p,
+  body.portfolio-page .portfolio-step p,
+  body.portfolio-page .portfolio-signal p,
+  body.portfolio-page .portfolio-metric p,
+  body.portfolio-page .portfolio-link-card p,
+  body.portfolio-page .portfolio-contact-card p,
+  body.portfolio-page .portfolio-image-caption,
+  body.portfolio-page .portfolio-note {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+  }
+
+  body.portfolio-page .nav-main-link,
+  body.portfolio-page .nav-contact-button,
+  body.portfolio-page .footer-main-link,
+  body.portfolio-page .portfolio-button {
+    min-height: 44px !important;
+  }
+
+  body.portfolio-page .nav-main-link {
+    padding: 0.78rem 1rem !important;
+    font-size: 0.94rem !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  body.portfolio-page .nav-contact-button {
+    padding-inline: 1rem !important;
+  }
+
+  body.portfolio-page .portfolio-actions,
+  body.portfolio-page .portfolio-inline-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem !important;
+  }
+
+  body.portfolio-page .portfolio-actions .portfolio-button,
+  body.portfolio-page .portfolio-inline-links .portfolio-button,
+  body.portfolio-page .footer-main-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body.portfolio-page .portfolio-metric-list,
+  body.portfolio-page .portfolio-steps,
+  body.portfolio-page .portfolio-chip-row {
+    gap: 0.85rem !important;
+  }
+
+  body.portfolio-page .portfolio-media {
+    min-height: min(62vw, 22rem) !important;
+  }
+
+  body.portfolio-page .portfolio-image-caption {
+    position: static !important;
+    margin-top: 0.75rem !important;
+  }
+
+  body.portfolio-page .portfolio-photo-stack,
+  body.portfolio-page .portfolio-media,
+  body.portfolio-page .portfolio-panel,
+  body.portfolio-page .portfolio-link-card,
+  body.portfolio-page .portfolio-contact-card {
+    border-radius: 1.25rem !important;
+  }
+
+  body.portfolio-page .footer-main-links-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+
+  body:not(.portfolio-page) .footer-background-images,
+  body:not(.portfolio-page) .contact-brush-banner {
+    display: none !important;
+  }
+
+  body:not(.portfolio-page) .footer-main-links-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem !important;
+  }
+
+  body:not(.portfolio-page) .footer-main-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px !important;
+    padding: 0.85rem 0.7rem !important;
+  }
+
+  body:not(.portfolio-page) .fullscreen-menu.is-open {
+    padding: 1rem;
+  }
+
+  body:not(.portfolio-page) .menu-layout {
+    gap: 1.25rem;
+  }
+
+  body:not(.portfolio-page) .menu-main-link,
+  body:not(.portfolio-page) .menu-small-link {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 479px) {
+  body.portfolio-page .portfolio-section {
+    padding: 2.4rem 0.9rem !important;
+  }
+
+  body.portfolio-page .portfolio-shell {
+    width: 100% !important;
+  }
+
+  body.portfolio-page .portfolio-link-row,
+  body.portfolio-page .portfolio-link-row.is-right,
+  body.portfolio-page .portfolio-utility-row,
+  body.portfolio-page .portfolio-utility-row.is-right {
+    gap: 0.45rem !important;
+  }
+
+  body.portfolio-page .nav-main-link,
+  body.portfolio-page .nav-contact-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body.portfolio-page .portfolio-button,
+  body.portfolio-page .portfolio-button.is-secondary {
+    width: 100%;
+  }
+
+  body:not(.portfolio-page) .footer-main-links-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+}
