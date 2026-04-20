@@ -25,6 +25,10 @@ body {
   overflow-x: clip;
 }
 
+.mobile-menu-sheet {
+  display: none;
+}
+
 @media (max-width: 991px) {
   body.portfolio-page .portfolio-grid,
   body.portfolio-page .portfolio-card-grid,
@@ -51,6 +55,102 @@ body {
 }
 
 @media (max-width: 767px) {
+  body.portfolio-page .mobile-menu-sheet {
+    display: block;
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    z-index: 30;
+    transform: translateY(-50%);
+  }
+
+  body.portfolio-page details.mobile-menu-sheet > .mobile-menu-summary {
+    display: flex !important;
+    min-height: 44px;
+    padding-inline: 0.9rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    list-style: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body.portfolio-page details.mobile-menu-sheet > .mobile-menu-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  body.portfolio-page details.mobile-menu-sheet > .mobile-menu-summary * {
+    pointer-events: none;
+  }
+
+  body.portfolio-page .mobile-menu-panel {
+    display: none;
+  }
+
+  body.portfolio-page .mobile-menu-sheet[open] > .mobile-menu-summary {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10001;
+    transform: none;
+  }
+
+  body.portfolio-page .mobile-menu-sheet[open] .mobile-menu-panel {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    padding: 4.75rem 1rem 1rem;
+    background: rgba(43, 29, 19, 0.22);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+  }
+
+  body.portfolio-page .mobile-menu-card {
+    width: min(100%, 24rem);
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid rgba(91, 69, 52, 0.14);
+    border-radius: 1.4rem;
+    background: rgba(247, 240, 232, 0.98);
+    box-shadow: 0 24px 60px rgba(43, 29, 19, 0.18);
+  }
+
+  body.portfolio-page .mobile-menu-note {
+    margin: 0 0 0.85rem;
+    color: #7e624d;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  body.portfolio-page .mobile-menu-links,
+  body.portfolio-page .mobile-menu-secondary {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  body.portfolio-page .mobile-menu-secondary {
+    margin-top: 0.9rem;
+  }
+
+  body.portfolio-page .mobile-menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.78rem 0.9rem;
+    border: 1px solid rgba(91, 69, 52, 0.12);
+    border-radius: 999px;
+    background: rgba(234, 218, 219, 0.34);
+    color: #2b1d13;
+    font-size: 0.92rem;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+  }
+
   body.portfolio-page .nav {
     position: sticky;
     top: 0;
@@ -60,25 +160,14 @@ body {
     border-bottom: 1px solid rgba(91, 69, 52, 0.12);
   }
 
-  body.portfolio-page .nav-menu-button {
+  body.portfolio-page .nav > .nav-menu-button {
     display: flex !important;
     position: absolute;
     left: 0.85rem;
     top: 50%;
     z-index: 20;
     transform: translateY(-50%);
-    min-height: 44px;
-    padding-inline: 0.9rem;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    pointer-events: auto !important;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  body.portfolio-page .nav-menu-button * {
-    pointer-events: none;
+    display: none !important;
   }
 
   body.portfolio-page .nav-main {
